@@ -26,7 +26,8 @@
     "react-helmet": "^6.1.0",
     "react-icons": "^4.3.1",
     "styled-components": "^5.3.3",
-    "three": "^0.134.0"
+    "three": "^0.134.0",
+    "three-stdlib": "^2.5.5"
   },
   "devDependencies": {
     "prettier": "^2.4.1"

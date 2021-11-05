@@ -8,8 +8,8 @@ import Three from "../Three/Three"
 const IndexPage = () => (
   <Layout>
     <Seo title="Home" />
-    <Hero/>
     <Three/>
+    <Hero/>
   </Layout>
 )
 
