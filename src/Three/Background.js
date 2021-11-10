@@ -5,7 +5,7 @@ import './Button.css'
 const Background = props => {
   const ref = useRef()
   return (
-    <mesh {...props} ref={ref} scale={11} position={[0, 1, -1.2]}>
+    <mesh {...props} ref={ref} scale={11} position={[0, 1, -2]}>
       <planeGeometry />
       <meshStandardMaterial
         color="lightblue"

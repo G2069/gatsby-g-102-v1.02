@@ -19,7 +19,7 @@ import styled from "styled-components"
 import Lvbu from "./Lvbu_cam_v4"
 import Background from "./Background"
 
-useGLTF.preload("/lvbu)cam_v4.glb")
+useGLTF.preload("/lvbu_cam_v4.glb")
 
 RectAreaLightUniformsLib.init()
 THREE.Vector2.prototype.equals = function (v, epsilon = 0.001) {
@@ -99,7 +99,7 @@ const Three = () => {
         <Suspense fallback={null}>
           <Lvbu scale={0.1} position={[-2, -5.9, 0.3]} />
           <Text
-            position={[0, -0.3, -1.2]}
+            position={[0, -0.3, -2]}
             fontSize={2.5}
             color="white"
             material-fog={false}
