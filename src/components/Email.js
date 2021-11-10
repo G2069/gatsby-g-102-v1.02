@@ -15,10 +15,10 @@ const Email = () => {
               <input type="email" placeholder="Enter your email" id="email" />
             </label>
             <Button>
-              <button class="cybr-btn">
+              <button class="presale-btn">
                 Register<span aria-hidden>_</span>
                 <a href="google.com">
-                  <span aria-hidden class="cybr-btn__glitch">
+                  <span aria-hidden class="presale-btn__glitch">
                     Register
                   </span>
                 </a>
@@ -100,13 +100,13 @@ const FormWrap = styled.div`
 `
 
 const Button = styled(Link)`
-  @font-face {
+@font-face {
   font-family: Cyber;
   src: url("https://assets.codepen.io/605876/Blender-Pro-Bold.otf");
   font-display: swap;
 }
 
-.cybr-btn {
+.presale-btn {
   --primary: hsl(
     var(--primary-hue),
     85%,
@@ -118,8 +118,11 @@ const Button = styled(Link)`
   --color: hsl(0, 0%, 100%);
   --font-size: 26px;
   --shadow-primary-hue: 180;
+  --label-size: 9px;
   --shadow-secondary-hue: 60;
   --shadow-secondary: hsl(var(--shadow-secondary-hue), 90%, 60%);
+  --border: 4px;
+  --shimmy-distance: 5;
   --clip-one: polygon(
     0 2%,
     100% 2%,
@@ -205,19 +208,24 @@ const Button = styled(Link)`
   font-size: var(--font-size);
   outline: transparent;
   letter-spacing: 2px;
+  position: relative;
+  font-weight: 700;
   border: 0;
-  min-width: 180px;
+  min-width: 170px;
+  height: 75px;
+  line-height: 75px;
   transition: 0.2s;
+  top: 4.2px;
 }
 
-.cybr-btn:hover {
+.presale-btn:hover {
   --primary: hsl(
     var(--primary-hue),
     85%,
     calc(var(--primary-lightness, 50) * 0.8%)
   );
 }
-.cybr-btn:active {
+.presale-btn:active {
   --primary: hsl(
     var(--primary-hue),
     85%,
@@ -225,33 +233,51 @@ const Button = styled(Link)`
   );
 }
 
-.cybr-btn:after,
-.cybr-btn:before {
+.presale-btn:after,
+.presale-btn:before {
   content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
   clip-path: var(--clip);
+  z-index: -1;
 }
 
-.cybr-btn:before {
+.presale-btn:before {
   background: var(--shadow-primary);
   transform: translate(var(--border), 0);
 }
 
-.cybr-btn:after {
+.presale-btn:after {
   background: var(--primary);
 }
 
-.cybr-btn__glitch {
+.presale-btn__glitch {
+  position: absolute;
+  top: calc(var(--border) * -1);
+  left: calc(var(--border) * -1);
+  right: calc(var(--border) * -1);
+  bottom: calc(var(--border) * -1);
   background: var(--shadow-primary);
   text-shadow: 2px 2px var(--shadow-primary), -2px -2px var(--shadow-secondary);
   clip-path: var(--clip);
   animation: glitch 2s infinite;
+  display: none;
 }
 
-.cybr-btn:hover .cybr-btn__glitch {
+.presale-btn:hover .presale-btn__glitch {
+  display: block;
 }
 
-.cybr-btn__glitch:before {
+.presale-btn__glitch:before {
   content: "";
+  position: absolute;
+  top: calc(var(--border) * 1);
+  right: calc(var(--border) * 1);
+  bottom: calc(var(--border) * 1);
+  left: calc(var(--border) * 1);
   clip-path: var(--clip);
   background: var(--primary);
   z-index: -1;
@@ -323,7 +349,7 @@ const Button = styled(Link)`
   }
 }
 
-.cybr-btn:nth-of-type(2) {
+.presale-btn:nth-of-type(2) {
   --primary-hue: 260;
 }
 

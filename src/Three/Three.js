@@ -1,12 +1,7 @@
 import * as THREE from "three"
 import React, { Suspense, useRef } from "react"
 import { Canvas } from "@react-three/fiber"
-import {
-  useGLTF,
-  useAnimations,
-  Text,
-  AdaptiveDpr,
-} from "@react-three/drei"
+import { useGLTF, useAnimations, Text, AdaptiveDpr } from "@react-three/drei"
 import {
   EffectComposer,
   SSAO,
@@ -14,7 +9,7 @@ import {
   Glitch,
 } from "@react-three/postprocessing"
 import { KernelSize } from "postprocessing"
-import { RectAreaLightUniformsLib } from "three-stdlib"
+import { RectAreaLightUniformsLib, RoundedBoxGeometry } from "three-stdlib"
 import styled from "styled-components"
 import Lvbu from "./Lvbu_cam_v4"
 import Background from "./Background"
@@ -41,7 +36,6 @@ const Lights = () => {
         position={[-5, 10, 2]}
         angle={0.7}
         penumbra={1}
-
         shadow-mapSize={[2048, 2048]}
       />
       <group ref={lights}>
@@ -89,7 +83,6 @@ function Effects() {
   )
 }
 
-
 const Three = () => {
   return (
     <ThreeContainer>
@@ -97,7 +90,7 @@ const Three = () => {
         <color attach="background" args={["lightblue"]} />
         <Lights />
         <Suspense fallback={null}>
-          <Lvbu scale={0.1} position={[-2, -5.9, 0.3]} />
+            <Lvbu scale={0.1} position={[-2, -5.9, 0.3]} onClick={() => window.appHistory.push("/")}/>
           <Text
             position={[0, -0.3, -2]}
             fontSize={2.5}
@@ -161,3 +154,4 @@ const ThreeContainer = styled.div`
   margin-top: -80px;
   color: #fff;
 `
+
