@@ -11,10 +11,10 @@ import {
 import { KernelSize } from "postprocessing"
 import { RectAreaLightUniformsLib, RoundedBoxGeometry } from "three-stdlib"
 import styled from "styled-components"
-import Lvbu from "./Lvbu_cam_v4"
+import Lvbu from "./Lvbu-final"
 import Background from "./Background"
 
-useGLTF.preload("/lvbu_cam_v4.glb")
+useGLTF.preload("/Lvbu-final.glb")
 
 RectAreaLightUniformsLib.init()
 THREE.Vector2.prototype.equals = function (v, epsilon = 0.001) {
@@ -90,7 +90,7 @@ const Three = () => {
         <color attach="background" args={["lightblue"]} />
         <Lights />
         <Suspense fallback={null}>
-            <Lvbu scale={0.1} position={[-2, -5.9, 0.3]} onClick={() => window.appHistory.push("/")}/>
+            <Lvbu scale={0.1} position={[-2, -5.9, 0.3]} />
           <Text
             position={[0, -0.3, -2]}
             fontSize={2.5}
