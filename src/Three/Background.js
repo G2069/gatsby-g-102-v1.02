@@ -1,11 +1,15 @@
 import React, { useRef } from "react"
 import { Html } from "@react-three/drei"
-import './Button.css'
+import { useThree } from '@react-three/fiber'
+import { Link } from "gatsby"
+import "./Button.css"
+import CyberButton from "./CyberButton"
 
 const Background = props => {
   const ref = useRef()
+  const { viewport } = useThree()
   return (
-    <mesh {...props} ref={ref} scale={11} position={[0, 1, -2]}>
+    <mesh {...props} ref={ref} scale={(viewport.width * 4)} position={[0, 1, -2]}>
       <planeGeometry />
       <meshStandardMaterial
         color="lightblue"
@@ -14,13 +18,9 @@ const Background = props => {
         envMapIntensity={0}
       />
       <Html>
-        <button class="cybr-btn">
-          Join Presale<span aria-hidden>_</span>
-          <a href='google.com'><span aria-hidden class="cybr-btn__glitch">
-            Join Presale
-          </span>
-          </a>
-        </button>
+        <Link to="/page-2">
+          <CyberButton />
+        </Link>
       </Html>
     </mesh>
   )
