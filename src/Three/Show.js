@@ -1,7 +1,8 @@
 import React, { Suspense, useRef } from "react"
 import { ThreeContainer } from "./Three"
 import { Canvas } from "@react-three/fiber"
-import Lvbu from "./Main-model"
+import Model from "./Second-model"
+import Overlay from "./Overlay"
 
 const Lights = () => {
   const lights = useRef()
@@ -39,14 +40,27 @@ const Lights = () => {
 }
 
 const Show = () => {
+  const scroll = useRef(0)
+  const overlay = useRef()
+  const caption = useRef()
+  
   return (
     <ThreeContainer>
-      <Canvas>
+      <Canvas
+        onCreated={state => state.events.connect(overlay.current)}
+        raycaster={{
+          computeOffsets: ({ clientX, clientY }) => ({
+            offsetX: clientX,
+            offsetY: clientY,
+          }),
+        }}
+      >
         <Lights />
         <Suspense fallback={null}>
-            <Lvbu position={[-2, -5.9, 0]} />
+          <Model scroll={scroll} />
         </Suspense>
       </Canvas>
+      <Overlay ref={overlay} caption={caption} scroll={scroll} />
     </ThreeContainer>
   )
 }
