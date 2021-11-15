@@ -1,7 +1,7 @@
 import * as THREE from "three"
 import React, { Suspense, useRef } from "react"
 import { Canvas } from "@react-three/fiber"
-import { useGLTF, useAnimations, Text, AdaptiveDpr } from "@react-three/drei"
+import { useGLTF, useAnimations, Text } from "@react-three/drei"
 import {
   EffectComposer,
   SSAO,
@@ -9,12 +9,13 @@ import {
   Glitch,
 } from "@react-three/postprocessing"
 import { KernelSize } from "postprocessing"
-import { RectAreaLightUniformsLib, RoundedBoxGeometry } from "three-stdlib"
+import { RectAreaLightUniformsLib } from "three-stdlib"
 import styled from "styled-components"
-import Lvbu from "./Lvbu-final"
+import Lvbu from "./Main-model"
 import Background from "./Background"
 
-useGLTF.preload("/Lvbu-final.glb")
+
+useGLTF.preload("/final-scene-v2.glb")
 
 RectAreaLightUniformsLib.init()
 THREE.Vector2.prototype.equals = function (v, epsilon = 0.001) {
@@ -90,7 +91,7 @@ const Three = () => {
         <color attach="background" args={["lightblue"]} />
         <Lights />
         <Suspense fallback={null}>
-            <Lvbu scale={0.1} position={[-2, -5.9, 0.3]} />
+            <Lvbu position={[-2, -5.9, 0]} />
           <Text
             position={[0, -0.3, -2]}
             fontSize={2.5}
@@ -135,7 +136,6 @@ const Three = () => {
           </Text>
         </Suspense>
         <Background />
-        <AdaptiveDpr />
         <Effects />
       </Canvas>
     </ThreeContainer>
@@ -144,14 +144,16 @@ const Three = () => {
 
 export default Three
 
-const ThreeContainer = styled.div`
+export const ThreeContainer = styled.div`
   background: #0c0c0c;
   display: flex;
-  justify-content: center;
-  align-items: center;
   height: 100vh;
   position: relative;
   margin-top: -80px;
   color: #fff;
+
+  @media screen and (max-width: 768px) {
+    position: 1 1 auto
+  }
 `
 
