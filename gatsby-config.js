@@ -1,4 +1,5 @@
 module.exports = {
+  pathPrefix: "/gatsby-g-102-v1.02",
   siteMetadata: {
     title: `G-102`,
     //description for search engine optimization
