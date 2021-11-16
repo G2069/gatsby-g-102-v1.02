@@ -22,7 +22,7 @@ function useLerpedMouse() {
 
 export default function Model({ ...props }) {
   const group = useRef()
-  const { nodes, materials, animations } = useGLTF("/final-scene-v2.glb")
+  const { nodes, materials, animations } = useGLTF("/final-scene.glb")
   const { actions } = useAnimations(animations, group)
   const mouse = useLerpedMouse()
   const { viewport } = useThree()
@@ -32,7 +32,7 @@ export default function Model({ ...props }) {
   })
 
   return (
-    <group ref={group} {...props} dispose={null} scale={(viewport.width / 73)}>
+    <group ref={group} {...props} dispose={null} scale={viewport.width / 73}>
       <group
         name="Camera"
         position={[0.96, 55.97, 132.61]}
@@ -229,4 +229,4 @@ export default function Model({ ...props }) {
   )
 }
 
-useGLTF.preload("/final-scene-v2.glb")
+useGLTF.preload("/final-scene.glb")

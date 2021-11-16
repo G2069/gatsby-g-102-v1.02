@@ -11,11 +11,12 @@ import {
 import { KernelSize } from "postprocessing"
 import { RectAreaLightUniformsLib } from "three-stdlib"
 import styled from "styled-components"
-import Lvbu from "./Main-model"
+import Lvbu from "./First-model"
 import Background from "./Background"
+import './three.css'
 
 
-useGLTF.preload("/final-scene-v2.glb")
+useGLTF.preload("/final-scene.glb")
 
 RectAreaLightUniformsLib.init()
 THREE.Vector2.prototype.equals = function (v, epsilon = 0.001) {

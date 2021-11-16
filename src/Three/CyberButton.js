@@ -6,9 +6,9 @@ const CyberButton = () => {
   return (
       <ButtonWrapper>
     <button class="cybr-btn">
-      Join Presale<span aria-hidden>_</span>
+      Explore<span aria-hidden>_</span>
       <span aria-hidden class="cybr-btn__glitch">
-        Join Presale
+        Explore
       </span>
     </button>
     </ButtonWrapper>

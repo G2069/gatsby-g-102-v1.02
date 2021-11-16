@@ -1,8 +1,10 @@
 import React, { Suspense, useRef } from "react"
 import { ThreeContainer } from "./Three"
 import { Canvas } from "@react-three/fiber"
-import Model from "./Second-model"
+import Model from "./Second"
 import Overlay from "./Overlay"
+import "./Show.css"
+import { Environment, Stage } from "@react-three/drei"
 
 const Lights = () => {
   const lights = useRef()
@@ -43,9 +45,9 @@ const Show = () => {
   const scroll = useRef(0)
   const overlay = useRef()
   const caption = useRef()
-  
+
   return (
-    <ThreeContainer>
+    <>
       <Canvas
         onCreated={state => state.events.connect(overlay.current)}
         raycaster={{
@@ -57,11 +59,12 @@ const Show = () => {
       >
         <Lights />
         <Suspense fallback={null}>
-          <Model scroll={scroll} />
+          <Environment path="/cube" />
+            <Model scroll={scroll} />
         </Suspense>
       </Canvas>
       <Overlay ref={overlay} caption={caption} scroll={scroll} />
-    </ThreeContainer>
+    </>
   )
 }
 
