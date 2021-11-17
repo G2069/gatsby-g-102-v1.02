@@ -16,6 +16,7 @@
     "gatsby-plugin-manifest": "^4.0.0",
     "gatsby-plugin-offline": "^5.0.0",
     "gatsby-plugin-react-helmet": "^5.0.0",
+    "gatsby-plugin-sass": "^5.2.0",
     "gatsby-plugin-sharp": "^4.0.1",
     "gatsby-plugin-styled-components": "^5.0.0",
     "gatsby-source-filesystem": "^4.0.0",
@@ -27,6 +28,7 @@
     "react-helmet": "^6.1.0",
     "react-icons": "^4.3.1",
     "react-scroll": "^1.8.4",
+    "sass": "^1.43.4",
     "styled-components": "^5.3.3",
     "three": "^0.134.0",
     "three-stdlib": "^2.5.5"

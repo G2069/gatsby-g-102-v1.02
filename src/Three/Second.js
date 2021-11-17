@@ -7,8 +7,7 @@ import React, { useRef, useEffect } from "react"
 import {
   useGLTF,
   PerspectiveCamera,
-  useAnimations,
-  Html,
+  useAnimations
 } from "@react-three/drei"
 import { useFrame } from "@react-three/fiber"
 

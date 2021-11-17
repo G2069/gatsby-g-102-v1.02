@@ -1,10 +1,9 @@
 import React, { Suspense, useRef } from "react"
-import { ThreeContainer } from "./Three"
 import { Canvas } from "@react-three/fiber"
 import Model from "./Second"
 import Overlay from "./Overlay"
 import "./Show.css"
-import { Environment, Stage } from "@react-three/drei"
+import { Environment } from "@react-three/drei"
 
 const Lights = () => {
   const lights = useRef()
